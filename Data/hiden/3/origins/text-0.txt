@@ -1,0 +1,10 @@
+The floating-point instructions that the x87 FPU supports can be grouped into six functional categories:
+• Data transfer instructions
+• Basic arithmetic instructions
+• Comparison instructions
+• Transcendental instructions
+• Load constant instructions
+• x87 FPU control instructions
+
+See Section 5.2., “x87 FPU Instructions”, for a list of the floating-point instructions by category.
+The following section briefly describes the instructions in each category. Detailed descriptions of the floating-point instructions are given in Chapter 3, Instruction Set Reference A-M and Chapter 4, Instruction Set Reference N-Z of the IA-32 Intel Architecture Software Developer’s Manual, Volumes 2A & 2B. 

@@ -1,0 +1,25 @@
+The following instructions control the state and modes of operation of the x87 FPU. They also allow the status of the x87 FPU to be examined:
+FINIT/FNINIT 		Initialize x87 FPU
+FLDCW 			Load x87 FPU control word
+FSTCW/FNSTCW 		Store x87 FPU control word
+FSTSW/FNSTSW 		Store x87 FPU status word
+FCLEX/FNCLEX 		Clear x87 FPU exception flags
+FLDENV 			Load x87 FPU environment
+FSTENV/FNSTENV 		Store x87 FPU environment
+FRSTOR 			Restore x87 FPU state
+FSAVE/FNSAVE 		Save x87 FPU state
+FINCSTP 		Increment x87 FPU register stack pointer
+FDECSTP 		Decrement x87 FPU register stack pointer
+FFREE 			Free x87 FPU register
+FNOP 			No operation
+WAIT/FWAIT 		Check for and handle pending unmasked x87 FPU exceptions
+
+The FINIT/FNINIT instructions initialize the x87 FPU and its internal registers to default values.
+
+The FLDCW instructions loads the x87 FPU control word register with a value from memory. The FSTCW/FNSTCW and FSTSW/FNSTSW instructions store the x87 FPU control and status words, respectively, in memory (or for an FSTSW/FNSTSW instruction in a general-purpose register).
+
+The FSTENV/FNSTENV and FSAVE/FNSAVE instructions save the x87 FPU environment and state, respectively, in memory. The x87 FPU environment includes all the x87 FPU’s control and status registers; the x87 FPU state includes the x87 FPU environment and the data registers in the x87 FPU register stack. (The FSAVE/FNSAVE instruction also initializes the x87 FPU to default values, like the FINIT/FNINIT instruction, after it saves the original state of the x87 FPU.)
+
+The FLDENV and FRSTOR instructions load the x87 FPU environment and state, respectively, from memory into the x87 FPU. These instructions are commonly used when switching tasks or contexts.
+
+The WAIT/FWAIT instructions are synchronization instructions. (They are actually mnemonics for the same opcode.) These instructions check the x87 FPU status word for pending unmasked x87 FPU exceptions. If any pending unmasked x87 FPU exceptions are found, they are handled before the processor resumes execution of the instructions (integer, floating-point, or system instruction) in the instruction stream. The WAIT/FWAIT instructions are provided to allow synchronization of instruction execution between the x87 FPU and the processor’s integer unit. See Section 8.6., “x87 FPU Exception Synchronization” for more information on the use of the WAIT/FWAIT instructions.

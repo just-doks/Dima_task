@@ -1,0 +1,1 @@
+1.7. x87 FPU Instruction and Data (Operand) Pointers

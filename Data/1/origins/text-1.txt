@@ -1,0 +1,10 @@
+The x87 FPU represents a separate execution environment within the IA-32 architecture (see Figure 8-1). This execution environment consists of 8 data registers (called the x87 FPU data registers) and the following special-purpose registers:
+• The status register
+• The control register
+• The tag word register
+• Last instruction pointer register
+• Last data (operand) pointer register
+• Opcode register
+These registers are described in the following sections.
+The x87 FPU executes instructions from the processor’s normal instruction stream. The state of the x87 FPU is independent from the state of the basic execution environment (described in Chapter 7) and from the state of SSE/SSE2/SSE3 extensions (described in Chapters 10, 11 and 12). 
+However, the x87 FPU and Intel MMX technology share state because the MMX registers are aliased to the x87 FPU data registers. Therefore, when writing code that uses x87 FPU and MMX instructions, the programmer must explicitly manage the x87 FPU and MMX state (see Section 9.5., “Compatibility with x87 FPU Architecture”).

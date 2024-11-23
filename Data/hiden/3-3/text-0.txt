@@ -1,0 +1,9 @@
+The data transfer instructions (see Table 8-4) perform the following operations:
+• Load a floating-point, integer, or packed BCD operand from memory into the ST(0) register.
+• Store the value in an ST(0) register to memory in floating-point, integer, or packed BCD format.
+• Move values between registers in the x87 FPU register stack.
+
+The FLD (load floating point) instruction pushes a floating-point operand from memory onto the top of the x87 FPU data-register stack. If the operand is in single-precision or double-precision floating-point format, it is automatically converted to double extended-precision floatingpoint format. This instruction can also be used to push the value in a selected x87 FPU data register onto the top of the register stack.
+
+The FILD (load integer) instruction converts an integer operand in memory into double extended-precision floating-point format and pushes the value onto the top of the register stack.
+The FBLD (load packed decimal) instruction performs the same load operation for a packed BCD operand in memory.

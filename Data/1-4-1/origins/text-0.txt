@@ -1,0 +1,1 @@
+The exception-flag mask bits (bits 0 through 5 of the x87 FPU control word) mask the 6 floatingpoint exception flags in the x87 FPU status word. When one of these mask bits is set, its corresponding x87 FPU floating-point exception is blocked from being generated.

@@ -1,0 +1,5 @@
+Most floating-point instructions require one or two operands, located on the x87 FPU dataregister stack or in memory. (None of the floating-point instructions accept immediate operands.)
+
+When an operand is located in a data register, it is referenced relative to the ST(0) register (the register at the top of the register stack), rather than by a physical register number. Often the ST(0) register is an implied operand.
+
+Operands in memory can be referenced using the same operand addressing methods described in Section 3.7., “Operand Addressing”.

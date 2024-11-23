@@ -1,0 +1,9 @@
+The following instructions push commonly used constants onto the top [ST(0)] of the x87 FPU register stack:
+FLDZ 	Load +0.0
+FLD1 	Load +1.0
+FLDPI 	Load pi
+FLDL2T 	Load log2 10
+FLDL2E 	Load log2 e
+FLDLG2 	Load log10 2
+FLDLN2 	Load loge 2
+The constant values have full double extended-precision floating-point precision (64 bits) and are accurate to approximately 19 decimal digits. They are stored internally in a format more precise than double extended-precision floating point. When loading the constant, the x87 FPU rounds the more precise internal constant according to the RC (rounding control) field of the x87 FPU control word. The inexact-result exception (#P) is not generated as a result of this rounding, nor is the C1 flag set in the x87 FPU status word if the value is rounded up. See Section 8.3.8., “Pi”, for information on the pi constant.

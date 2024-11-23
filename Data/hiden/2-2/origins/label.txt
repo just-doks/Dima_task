@@ -1,0 +1,1 @@
+2.2. Unsupported Double Extended-Precision Floating-Point Encodings and Pseudo-Denormals

@@ -1,0 +1,21 @@
+The following instructions compare or classify floating-point values:
+FCOM/FCOMP/FCOMPP 	Compare floating point and set x87 FPU condition code flags.
+FUCOM/FUCOMP/FUCOMPP 	Unordered compare floating point and set x87 FPU condition code flags.
+FICOM/FICOMP 		Compare integer and set x87 FPU condition code flags.
+FCOMI/FCOMIP 		Compare floating point and set EFLAGS status flags.
+FUCOMI/FUCOMIP 		Unordered compare floating point and set EFLAGS status flags.
+FTST 			Test (compare floating point with 0.0).
+FXAM 			Examine.
+Comparison of floating-point values differ from comparison of integers because floating-point values have four (rather than three) mutually exclusive relationships: less than, equal, greater than, and unordered.
+
+The unordered relationship is true when at least one of the two values being compared is a NaN or in an unsupported format. This additional relationship is required because, by definition, NaNs are not numbers, so they cannot have less than, equal, or greater than relationships with other floating-point values.
+
+The FCOM, FCOMP, and FCOMPP instructions compare the value in register ST(0) with a floating-point source operand and set the condition code flags (C0, C2, and C3) in the x87 FPU status word according to the results (see Table 8-6). 
+
+If an unordered condition is detected (one or both of the values are NaNs or in an undefined
+format), a floating-point invalid-operation exception is generated.
+
+The pop versions of the instruction pop the x87 FPU register stack once or twice after the
+comparison operation is complete.
+
+The FUCOM, FUCOMP, and FUCOMPP instructions operate the same as the FCOM, FCOMP, and FCOMPP instructions. The only difference is that with the FUCOM, FUCOMP, and FUCOMPP instructions, if an unordered condition is detected because one or both of the operands are QNaNs, the floating-point invalid-operation exception is not generated.

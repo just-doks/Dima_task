@@ -1,0 +1,5 @@
+Software can check if the FCOMI and FCOMIP instructions are supported by checking the processor’s feature information with the CPUID instruction (see “CPUID—CPU Identification” in Chapter 3, Instruction Set Reference A-M of the IA-32 Intel Architecture Software Developer’s Manual, Volume 2).
+
+The FUCOMI and FUCOMIP instructions operate the same as the FCOMI and FCOMIP instructions, except that they do not generate a floating-point invalid-operation exception if the unordered condition is the result of one or both of the operands being a QNaN. The FCOMIP and FUCOMIP instructions pop the x87 FPU register stack following the comparison operation.
+
+The FXAM instruction determines the classification of the floating-point value in the ST(0) register (that is, whether the value is zero, a denormal number, a normal finite number, f, a NaN, or an unsupported format) or that the register is empty. It sets the x87 FPU condition code flags to indicate the classification (see “FXAM—Examine” in Chapter 3, Instruction Set Reference A-M, of the IA-32 Intel Architecture Software Developer’s Manual, Volume 2A). It also sets the C1 flag to indicate the sign of the value.

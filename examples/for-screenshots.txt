@@ -1,0 +1,3 @@
+mv *.png picture-1.png
+convert picture-1.png picture-1.jpg
+rm *.png

@@ -1,0 +1,48 @@
+The following floating-point instructions perform basic arithmetic operations on floating-point numbers. Where applicable, these instructions match IEEE Standard 754:
+FADD/FADDP Add floating point
+FIADD 		Add integer to floating point
+FSUB/FSUBP 	Subtract floating point
+FISUB 		Subtract integer from floating point
+FSUBR/FSUBRP 	Reverse subtract floating point
+FISUBR 		Reverse subtract floating point from integer
+FMUL/FMULP 	Multiply floating point
+FIMUL 		Multiply integer by floating point
+FDIV/FDIVP 	Divide floating point
+FIDIV 		Divide floating point by integer
+FDIVR/FDIVRP 	Reverse divide
+FIDIVR 		Reverse divide integer by floating point
+FABS 		Absolute value
+FCHS 		Change sign
+FSQRT 		Square root
+FPREM 		Partial remainder
+FPREM1 		IEEE partial remainder
+FRNDINT 	Round to integral value
+FXTRACT 	Extract exponent and significand
+
+The add, subtract, multiply and divide instructions operate on the following types of operands:
+• Two x87 FPU data registers
+• An x87 FPU data register and a floating-point or integer value in memory
+
+See Section 8.1.1., “x87 FPU Data Registers” for a description of how operands are referenced on the data register stack.
+
+Operands in memory can be in single-precision floating-point, double-precision floating-point, word-integer, or doubleword-integer format. They are converted to double extended-precision floating-point format automatically.
+
+Reverse versions of the subtract (FSUBR) and divide (FDIVR) instructions enable efficient coding. For example, the following options are available with the FSUB and FSUBR instructions for operating on values in a specified x87 FPU data register ST(i) and the ST(0) register:
+FSUB:
+ST(0) <- ST(0) - ST(i)
+ST(i) <- ST(i) - ST(0)
+FSUBR:
+ST(0) <- ST(i) - ST(0)
+ST(i) <- ST(0) - ST(i)
+
+These instructions eliminate the need to exchange values between the ST(0) register and another x87 FPU register to perform a subtraction or division.
+
+The pop versions of the add, subtract, multiply, and divide instructions offer the option of popping the x87 FPU register stack following the arithmetic operation. These instructions operate on values in the ST(i) and ST(0) registers, store the result in the ST(i) register, and pop the ST(0) register.
+
+The FPREM instruction computes the remainder from the division of two operands in the manner used by the Intel 8087 and Intel 287 math coprocessors; the FPREM1 instruction computes the remainder in the manner specified in IEEE Standard 754.
+
+The FSQRT instruction computes the square root of the source operand.
+
+The FRNDINT instruction returns a floating-point value that is the integral value closest to the source value in the direction of the rounding mode specified in the RC field of the x87 FPU control word.
+
+The FABS, FCHS, and FXTRACT instructions perform convenient arithmetic operations. The FABS instruction produces the absolute value of the source operand. The FCHS instruction changes the sign of the source operand. The FXTRACT instruction separates the source operand into its exponent and fraction and stores each value in a register in floating-point format.

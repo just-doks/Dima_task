@@ -1,0 +1,3 @@
+Like the CMOVcc instructions, the FCMOVcc instructions are useful for optimizing small IF constructions. They also help eliminate branching overhead for IF operations and the possibility of branch mispredictions by the processor.
+
+Software can check if the FCMOVcc instructions are supported by checking the processor’s feature information with the CPUID instruction (see “CPUID—CPU Identification” in Chapter 3, Instruction Set Reference A-M of the IA-32 Intel Architecture Software Developer’s Manual, Volume 2A).

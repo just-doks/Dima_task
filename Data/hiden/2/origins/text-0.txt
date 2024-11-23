@@ -1,0 +1,10 @@
+The x87 FPU recognizes and operates on the following seven data types (see Figures 8-13):
+single-precision floating point, double-precision floating point, double extended-precision floating point, signed word integer, signed doubleword integer, signed quadword integer, and packed BCD decimal integers.
+
+For detailed information about these data types, see Section 4.2.2., “Floating-Point Data Types”, Section 4.2.1.2., “Signed Integers”, and Section 4.7., “BCD and Packed BCD Integers”.
+
+With the exception of the 80-bit double extended-precision floating-point format, all of these data types exist in memory only. When they are loaded into x87 FPU data registers, they are converted into double extended-precision floating-point format and operated on in that format.
+
+Denormal values are also supported in each of the floating-point types, as required by IEEE Standard 754. When a denormal number in single-precision or double-precision floating-point format is used as a source operand and the denormal exception is masked, the x87 FPU automatically normalizes the number when it is converted to double extended-precision format.
+
+When stored in memory, the least significant byte of an x87 FPU data-type value is stored at the initial address specified for the value. Successive bytes from the value are then stored in successively higher addresses in memory. The floating-point instructions load and store memory operands using only the initial address of the operand.

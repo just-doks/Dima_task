@@ -1,0 +1,1 @@
+A pointer to the x87 FPU data register that is currently at the top of the x87 FPU register stack is contained in bits 11 through 13 of the x87 FPU status word. This pointer, which is commonly referred to as TOP (for top-of-stack), is a binary value from 0 to 7. See Section 8.1.1., “x87 FPU Data Registers” for more information about the TOP pointer.

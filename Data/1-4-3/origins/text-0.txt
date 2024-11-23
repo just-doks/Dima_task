@@ -1,0 +1,1 @@
+The rounding-control (RC) field of the x87 FPU control register (bits 10 and 11) controls how the results of x87 FPU floating-point instructions are rounded. See Section 4.8.4., “Rounding” for a discussion of rounding of floating-point values; See Section 4.8.4.1., “Rounding Control (RC) Fields” for the encodings of the RC field.

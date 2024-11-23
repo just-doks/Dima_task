@@ -1,0 +1,12 @@
+The following instructions perform four common trigonometric functions:
+FSIN 		Sine
+FCOS 		Cosine
+FSINCOS 	Sine and cosine
+FPTAN 		Tangent
+FPATAN 		Arctangent
+
+These instructions operate on the top one or two registers of the x87 FPU register stack and they return their results to the stack. The source operands for the FSIN, FCOS, FSINCOS, and FPTAN instructions must be given in radians; the source operand for the FPATAN instruction is given in rectangular coordinate units.
+
+The FSINCOS instruction returns both the sine and the cosine of a source operand value. It operates faster than executing the FSIN and FCOS instructions in succession.
+
+The FPATAN instruction computes the arctangent of ST(1) divided by ST(0), returning a result in radians. It is useful for converting rectangular coordinates to polar coordinates.

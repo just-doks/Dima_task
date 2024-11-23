@@ -1,0 +1,35 @@
+When the argument (source operand) of a trigonometric function is within the range of the function, the argument is automatically reduced by the appropriate multiple of 2pi through the same reduction mechanism used by the FPREM and FPREM1 instructions. The internal value of pi that the x87 FPU uses for argument reduction and other computations is as follows:
+pi = 0.f * 2^2
+
+where:
+
+f = C90FDAA2 2168C234 C
+
+(The spaces in the fraction above indicate 32-bit boundaries.)
+
+This internal pi value has a 66-bit mantissa, which is 2 bits more than is allowed in the significand of an double extended-precision floating-point value. (Since 66 bits is not an even number of hexadecimal digits, two additional zeros have been added to the value so that it can be represented in hexadecimal format. The least-significant hexadecimal digit (C) is thus 1100B, where the two least-significant bits represent bits 67 and 68 of the mantissa.)
+
+This value of pi has been chosen to guarantee no loss of significance in a source operand, provided the operand is within the specified range for the instruction.
+
+If the results of computations that explicitly use pi are to be used in the FSIN, FCOS, FSINCOS, or FPTAN instructions, the full 66-bit fraction of pi should be used. This insures that the results are consistent with the argument-reduction algorithms that these instructions use. Using a rounded version of pi can cause inaccuracies in result values, which if propagated through several calculations, might result in meaningless results.
+
+A common method of representing the full 66-bit fraction of S is to separate the value into two numbers (high pi and low pi) that when added together give the value for pi shown earlier in this section with the full 66-bit fraction:
+
+pi = high pi + low pi
+
+For example, the following two values (given in scientific notation with the fraction in hexadecimal and the exponent in decimal) represent the 33 most-significant and the 33 least-significant bits of the fraction:
+
+high pi (unnormalized)= 0.C90FDAA20 * 2^+2
+low pi (unnormalized)= 0.42D184698 * 2^-31
+
+These values encoded in the IEEE double-precision floating-point format are as follows:
+high pi = 400921FB 54400000
+low pi = 3DE0B461 1A600000
+
+(Note that in the IEEE double-precision floating-point format, the exponents are biased (by 1023) and the fractions are normalized.)
+
+Similar versions of pi can also be written in double extended-precision floating-point format.
+
+When using this two-part pi value in an algorithm, parallel computations should be performed on each part, with the results kept separate. When all the computations are complete, the two results can be added together to form the final result.
+
+The complications of maintaining a consistent value of pi for argument reduction can be avoided, either by applying the trigonometric functions only to arguments within the range of the automatic reduction mechanism, or by performing all argument reductions (down to a magnitude less than S/4) explicitly in software.
